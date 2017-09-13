@@ -1,2 +1,20 @@
   工作中经常会遇到需要有上下水平居中的需求，水平的居中应该比较好实现，同时兼顾水平和上下的居中就有一定的麻烦，不光是要实现，而且需要有比较良好的兼容效果，
 以及可扩展性。下面记录几个自己经常使用的，或者是从其他地方收集的各种水平垂直居中的方法，供以后需要参考。
+
+一、使用table-cell实现元素的垂直居中效果
+HTML结构代码如下:
+<div id="wrap">
+  <div class="contain">
+    <p>这里是任意一些文字</p>
+  </div>
+</div>
+
+CSS代码如下:
+#wrap{display:table;background:orange;width:100%;height:1000px};
+.contain{display:table-cell;text-align:center;vertical-align:middle;}
+
+table-cell的作用是使元素具有td元素的性质,通过vertical-align:middle;属性设置可以使该元素在父元素中实现垂直居中。但是要注意的是,父元素#wrap需要加上
+width:100%;防止父元素的折叠。
+
+
+二、
