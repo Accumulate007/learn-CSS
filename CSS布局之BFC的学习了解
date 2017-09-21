@@ -35,10 +35,55 @@ CSS2.1规定，满足下列CSS声明的元素会生成BFC(也就是BFC的触发�
 
 三、BFC的一些应用实例
 
+1.防止垂直margin重叠
+我们都知道margin collapse,也就是相邻的垂直元素同时设置了margin之后，margin值会塌陷到其中较大的那个值，这就是margin值的合并。其根本原因就是他们处于
+同一个BFC中，因为“属于同一个BFC的两个相邻元素的margin会发生重叠”。
+解决方案是，我们可以在其中的一个元素外层包裹一个容器，并触发这个容器生成一个BFC。那么相邻的这两个元素就不会发生margin重叠了，因为此时他们分属于不同的
+BFC。
+HTML代码如下：
+<body>
+  <p class="alone">我属于一个单独的BFC</p>
+  <div id="wrap">
+    <p>我属于another BFC</p>
+  </div>
+</body>
 
+CSS代码如下：
+#wrap{
+	overflow: hidden;     //触发包裹容器生成BFC
+}
+p{
+	width: 200px;
+	line-height: 100px;
+	margin: 100px;
+	text-align: center;
+	background: #000;
+	color: #fff;
+}
 
+2.防止容器内部有浮动元素而发生高度坍塌
+在一个高度需要子元素撑开的容器中，如果子元素有浮动属性，则会发生父容器的高度坍塌，我们常常在父容器上加上overflow:hidden;来处理这一问题，这种方式的
+本质就是触发父容器的BFC，因为“计算BFC的高度时，浮动元素也参与计算”。示例如下。
 
+HTML代码如下：
+<div id="wrap">
+	<div class="child">float:left child111</div>
+	<div class="child">float:left child222</div>
+</div>
 
+CSS代码如下：
+#wrap{
+	width: 600px;
+	border: 2px solid black;
+	overflow: hidden;         //触发了父容器的BFC之后，内部的浮动元素高度被计算
+}
+.child{
+	float: left;
+	width: 100px;
+	height: 160px;
+	border: 5px solid orange;
+	color: #f00;
+}
 
 
 
