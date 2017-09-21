@@ -125,5 +125,27 @@ CSS代码如下：
 因为触发了.text的BFC，而.child本身是一个BFC，两个BFC是不会发生重叠的，因为他们是独立的渲染区域，因此.text内的文字就不会环绕在.child周围了。
 
 
+4.在多列布局中使用BFC
 
+HTML代码如下：
+<div class="container">
+	<div class="column">column 1</div>
+	<div class="column">column 2</div>
+	<div class="column">column 3</div>
+</div>
+
+CSS代码如下：
+.column {
+	float: left;
+	width: 31.33%;
+	background-color: green;
+	margin: 0 1%;
+}
+.column:last-child {
+	float: none;		//清除最后一列元素的浮动
+	overflow: hidden;	//并将它设置为BFC
+}
+
+如果我们正在创建的一个多列布局占满了整个容器的宽度，在某些浏览器中最后一列有时候将会被挤到下一行。会发生这样可能是因为浏览器舍入（取整）了列的宽度
+使得总和的宽度超过了容器的宽度。然而，如果我们在一个列的布局中建立了一个新的BFC，它将会在前一列填充完之后的后面占据所剩余的空间。
 
