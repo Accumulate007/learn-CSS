@@ -28,3 +28,66 @@ CSS代码如下:
 1.兼容到IE9以上的浏览器
 2.CSS transform在部分浏览器上需要使用前缀
 3.外部容器需要设置height
+
+
+三、使用absolute定位居中
+
+HTML代码如下：
+<div id="wrap">
+	<div class="contain">
+	</div>
+</div>
+
+CSS代码如下：
+#wrap{
+	position: relative;
+	min-height: 500px;
+	background: orange;
+}
+.contain{
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	width: 34%;     //宽度可随意设置
+	height: 40px;   //高度可随意设置
+	margin: auto;
+	overflow: hidden;
+	background: blue;
+}
+
+该方案可保证contain元素的上下左右都居中,这主要是由margin:auto;来实现的。
+此方案兼容性好，因为使用的是position定位原理,浏览器支持度比较高。但是需要显式地申明父容器#wrap的高度才能正常运行。
+
+
+四、使用Flexbox\居中
+
+HTML代码如下：
+<div id="wrap">
+	<div class="contain">
+	</div>
+</div>
+
+CSS代码如下：
+#wrap{
+	display: flex;
+	height: 600px;            //父容器的高度可以随意设定,也可以没有
+	justify-content: center;  //伸缩项目位于容器横向的中心
+	align-items: center;      //伸缩项目位于容器纵向的中心
+	background: orange;
+}
+.contain{
+	width: 30%;
+	height: 100px;
+	border: 5px solid green;
+}
+
+该方法主要使用了移动端布局比较常用的display:flex;属性，布局方法非常简单，但是它具有一定的浏览器兼容性问题，需要做相应的降级处理。
+
+
+
+
+
+
+
