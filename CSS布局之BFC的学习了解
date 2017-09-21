@@ -1,0 +1,36 @@
+一、一些基本概念
+CSS布局的两种基本单位：
+1.block-level box
+display属性为block,list-item,table的元素，会生成block-level box，并且参与block fromatting context。
+2.inline-level box
+display属性为inline,inline-block,inline-table的元素，会生成inline-level box,并且参与inline formatting context。
+
+那么formatting context又是啥呢？
+formatting context是W3C CSS2.1规范中的一个概念，它是页面中的一块渲染区域，并且有一套渲染规则，它决定了子元素将如何定位，以及和其他元素的关系和相互
+作用。也就是说formatting context提供了一个环境，使得HTML元素在这个环境中按照特定的规则进行布局。
+常见的formatting context有：
+Block formatting context
+Inline formatting context
+GridLayout formatting context
+Flex formatting context
+
+BFC的全拼是Block Formatting Context,它是一个独立的渲染区域，只有block-level box参与，其中的元素按照规定的渲染规则进行布局，并且，这个区域与外部毫不
+相干，这一点很重要。
+
+二、BFC的布局规则与触发条件
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
