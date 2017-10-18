@@ -61,9 +61,41 @@ CSS代码如下：
 这种方式对于三栏、四栏甚至更多栏的布局都是非常合适的。
 
 
-三、
+三、使用绝对定位实现的左右两栏固定宽度，中间自适应的布局。
+HTML代码如下：
+<div id="content">
+	<div class="left">左边宽度固定栏</div>
+	<div class="main">宽度自适应浏览器</div>
+	<div class="right">右边宽度固定栏</div>
+</div>
+
+CSS代码如下：
+#content{
+	position: relative;
+}
+#content .left{
+	position: absolute;
+	left: 0;
+	width: 200px;
+	height: 200px;
+	background: lightblue;
+}
+#content .main{
+	margin: 0 200px;
+	background: #666;
+	height: 200px;
+}
+#content .right{
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 200px;
+	height: 200px;
+	background: lightgreen;
+}
 
 
+四、
 
 
 
