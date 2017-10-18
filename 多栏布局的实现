@@ -28,4 +28,47 @@ CSS代码如下：
 这个实现比较简单，其中的重点在于.main元素overflow: auto;的设置,触发了该元素的BFC,使得.main元素和.aside元素可以并排排列,不至于因为浮动发生重叠。
 
 
-二、
+二、使用display:flex实现左右两栏固定宽度，中间栏宽度自适应。
+HTML代码如下:
+<div id="content">
+	<div class="left">左边宽度固定栏</div>
+	<div class="main">宽度自适应浏览器</div>
+	<div class="right">右边宽度固定栏</div>
+</div>
+
+CSS代码如下：
+#content{
+	display: flex;
+}
+#content .left{
+	height: 200px;
+	width: 280px;
+	background: #58a;
+}
+#content .main{
+	flex: 1;
+	height: 200px;
+	background: lightgreen;
+	text-align: center;
+}
+#content .right{
+	height: 200px;
+	width: 180px;
+	background: #ccc;
+}
+使用display:flex实现是一种比较方便高效的方式，只是兼容性要求会比较高。
+
+
+三、
+
+
+
+
+
+
+
+
+
+
+
+
