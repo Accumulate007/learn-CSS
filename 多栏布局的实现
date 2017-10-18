@@ -1,0 +1,31 @@
+多栏布局是布局中比较常见的需求，例如左侧栏定框，右侧栏自适应，左右两栏等宽自适应等等，都是比较常见的，下面收录一些项目中遇到的需求以及实现方式。
+
+一、左侧栏固定宽度，右侧栏自适应。
+HTML代码如下:
+<div id="header">头部</div>
+<div id="content">
+	<div class="aside">左边宽度固定栏</div>
+	<div class="main">主内容区域,宽度自适应浏览器</div>
+</div>
+<div id="footer">底部</div>
+
+CSS代码如下：
+#header,#footer{
+	height: 100px;
+	background: #666;
+}
+#content .aside{
+	height: 200px;
+	width: 100px;
+	background: #58a;
+	float: left;
+}
+#content .main{
+	height: 200px;
+	background: lightgreen;
+	overflow: auto;
+}
+这个实现比较简单，其中的重点在于.main元素overflow: auto;的设置,触发了该元素的BFC,使得.main元素和.aside元素可以并排排列,不至于因为浮动发生重叠。
+
+
+二、
