@@ -95,7 +95,44 @@ CSS代码如下：
 }
 
 
-四、
+四、使用padding+负margin实现的左右两栏固定宽度，中间自适应的布局。
+HTML代码如下：
+<div id="content">
+	<div class="left">左边宽度固定栏</div>
+	<div class="main">宽度自适应浏览器</div>
+	<div class="right">右边宽度固定栏</div>
+</div>
+
+CSS代码如下：
+#content{
+	padding: 0 210px;
+}
+#content:after{
+	clear: both;
+	content: " ";
+	display: table;
+}
+#content div{
+	float: left;
+	margin: 0;
+	height: 200px;
+}
+#content .left{
+	width: 210px;
+	margin-left: -210px;
+	background: lightblue;
+}
+#content .main{
+	width: 100%;
+	background: #666;
+}
+#content .right{
+	width: 210px;
+	margin-right: -210px;
+	float: right;
+	background: lightgreen;
+}
+
 
 
 
