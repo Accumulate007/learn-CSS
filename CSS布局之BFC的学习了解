@@ -1,8 +1,8 @@
 一、一些基本概念
 CSS布局的两种基本单位：
-1.block-level box
+1.block-level box(BFC)
 display属性为block,list-item,table的元素，会生成block-level box，并且参与block fromatting context。
-2.inline-level box
+2.inline-level box(IFC)
 display属性为inline,inline-block,inline-table的元素，会生成inline-level box,并且参与inline formatting context。
 
 那么formatting context又是啥呢？
